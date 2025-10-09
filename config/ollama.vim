@@ -3,7 +3,7 @@ let g:ollama_use_venv = 1
 " Ollama base URL
 let g:ollama_host = 'http://localhost:11434'
 " tab completion model
-let g:ollama_model = 'qwen3-coder:latest'
+let g:ollama_model = 'codellama:7b-code'
 " number of context lines to use for code completion
 "let g:ollama_context_lines = 10
 " debounce time to wait before triggering a completion
@@ -21,7 +21,7 @@ let g:ollama_chat_model = 'qwen3-coder:latest'
 "let g:ollama_chat_systemprompt = 'Give funny answers.'
 
 " edit model
-let g:ollama_edit_model = 'qwen3-coder:latest'
+let g:ollama_edit_model = 'codellama:13b-instruct'
 " when disabled, LLM changs are applied directly. Useful when tracking changes via Git.
 "let g:ollama_use_inline_diff = 0
 

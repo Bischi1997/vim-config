@@ -1,9 +1,3 @@
-" Enable source code highlighting
-syntax on
-
-" Special indent sizes, per language (i.e. file extension)
-filetype plugin indent on
-
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -23,6 +17,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocompletion
 Plug 'gergap/vim-ollama'
 call plug#end()
 
+" Enable source code highlighting
+syntax on
+" Special indent sizes, per language (i.e. file extension)
+filetype plugin indent on
+" Set colorscheme
 colorscheme gruvbox
 
 " Load config files for Plugin Configurations from ~/.vim/config/
@@ -36,7 +35,7 @@ endfor
 runtime macros/matchit.vim
 
 " various settings
-set updatetime=500             " trigger highlight after 0.5s idle time
+set updatetime=300             " trigger highlight after 0.3s idle time
 set termguicolors              " enable 24-bit RGB color
 set autoindent                 " Minimal automatic indenting for any filetype.
 set backspace=indent,eol,start " Intuitive backspace behavior.
@@ -46,4 +45,4 @@ set ruler                      " Shows the current line number at the bottom-rig
 set wildmenu                   " Great command-line completion, use `<Tab>` to move around and `<CR>` to validate.
 set number                     " Add linenumbers in editor
 set background=dark            " Start Theme in darkmode
-
+set mouse=a                  " Enable mouse support
