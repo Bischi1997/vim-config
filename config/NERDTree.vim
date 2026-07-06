@@ -2,7 +2,7 @@
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :FZF ..<CR>
+nnoremap <C-f> :Files<CR>
 
 " Autostart NERDTree in the dir of the opened file
 function! s:open_nerdtree_on_start() abort
