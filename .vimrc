@@ -48,3 +48,5 @@ set wildmenu                   " Great command-line completion, use `<Tab>` to m
 set number                     " Add linenumbers in editor
 set background=dark            " Start Theme in darkmode
 set mouse=a                  " Enable mouse support
+set undofile                   " Persist undo history across sessions
+set undodir=~/.vim/undo        " Directory for undo files
