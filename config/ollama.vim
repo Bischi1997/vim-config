@@ -7,7 +7,7 @@ let g:ollama_use_venv = 1
 " Ollama base URL
 let g:ollama_host = 'http://localhost:11434'
 " tab completion model
-let g:ollama_model = 'codellama:7b-code'
+let g:ollama_model = 'qwen2.5-coder:1.5b'
 " number of context lines to use for code completion
 "let g:ollama_context_lines = 10
 " debounce time to wait before triggering a completion
