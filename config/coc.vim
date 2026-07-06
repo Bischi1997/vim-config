@@ -1,6 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""
-" Configure autocompletion via coc plugin "
-"""""""""""""""""""""""""""""""""""""""""""
+" Configure autocompletion via coc plugin
 let g:coc_global_extensions = ['coc-snippets', 'coc-css', 'coc-json', 'coc-yaml', 'coc-tabnine', 'coc-html', 'coc-highlight']
 let g:coc_user_config = get(g:, 'coc_user_config', {})
 
@@ -56,4 +54,7 @@ function! HighlightCocSymbol() abort
   endif
 endfunction
 
-autocmd CursorHold * call HighlightCocSymbol()
+augroup user_coc
+  autocmd!
+  autocmd CursorHold * call HighlightCocSymbol()
+augroup END
