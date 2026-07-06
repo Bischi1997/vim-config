@@ -1,3 +1,7 @@
+if !exists(':Ollama')
+  finish
+endif
+
 " Use Python virtual environment (and install packages via pip)
 let g:ollama_use_venv = 1
 " Ollama base URL

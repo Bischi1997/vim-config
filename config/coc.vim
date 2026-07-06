@@ -1,3 +1,7 @@
+if !exists('*coc#refresh')
+  finish
+endif
+
 """""""""""""""""""""""""""""""""""""""""""
 " Configure autocompletion via coc plugin "
 """""""""""""""""""""""""""""""""""""""""""
@@ -41,4 +45,3 @@ endfunction
 
 " Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
-

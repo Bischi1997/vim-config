@@ -1,3 +1,7 @@
+if !exists(':NERDTree')
+  finish
+endif
+
 " NERDTree Shortcuts
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
