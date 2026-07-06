@@ -26,7 +26,7 @@ let g:ollama_chat_model = 'qwen3-coder:latest'
 
 " edit model
 let g:ollama_edit_model = 'codellama:13b-instruct'
-" when disabled, LLM changs are applied directly. Useful when tracking changes via Git.
+" when disabled, LLM changes are applied directly. Useful when tracking changes via Git.
 "let g:ollama_use_inline_diff = 0
 
 inoremap <silent> ,a <Plug>(ollama-tab-completion)

@@ -32,7 +32,6 @@ for config in split(glob('~/.vim/config/*.vim'), '\n')
   execute 'source' config
 endfor
 
-
 " `matchit.vim` is built-in so let's enable it!
 " Hit `%` on `if` to jump to `else`.
 runtime macros/matchit.vim
