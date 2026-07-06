@@ -40,4 +40,4 @@ inoremap <silent> ,l <Plug>(ollama-insert-line)
 " ollama chat conversation log
 "let g:ollama_review_logfile = '/tmp/logs/vim-ollama-review.log'
 
-" vim: filetype=vim.ollama
+" vim: filetype=vim
