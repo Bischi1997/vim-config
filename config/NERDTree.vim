@@ -28,4 +28,5 @@ endfunction
 augroup user_nerdtree
   autocmd!
   autocmd VimEnter * call s:open_nerdtree_on_start()
+  autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 augroup END
