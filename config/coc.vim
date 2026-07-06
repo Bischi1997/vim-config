@@ -1,11 +1,15 @@
-if !exists('*coc#refresh')
-  finish
-endif
-
 """""""""""""""""""""""""""""""""""""""""""
 " Configure autocompletion via coc plugin "
 """""""""""""""""""""""""""""""""""""""""""
-let g:coc_global_extensions = ['coc-snippets', 'coc-css', 'coc-json', 'coc-yaml', 'coc-tabnine', 'coc-html', 'coc-highlight', 'coc-solargraph']
+let g:coc_global_extensions = ['coc-snippets', 'coc-css', 'coc-json', 'coc-yaml', 'coc-tabnine', 'coc-html', 'coc-highlight']
+let g:coc_user_config = get(g:, 'coc_user_config', {})
+
+if executable('solargraph')
+  call add(g:coc_global_extensions, 'coc-solargraph')
+else
+  let g:coc_user_config['solargraph.enable'] = v:false
+  let g:coc_user_config['solargraph.promptDownload'] = v:false
+endif
 
 highlight CocHighlightText  guifg=#282828 guibg=#bdae93 gui=NONE
 highlight CocHighlightRead  guifg=#282828 guibg=#d5c4a1 gui=NONE
@@ -17,15 +21,15 @@ highlight CocHighlightWrite guifg=#282828 guibg=#fabd2f gui=NONE
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config
 inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ exists('*coc#pum#visible') && coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+      \ exists('*coc#refresh') ? coc#refresh() : "\<Tab>"
+inoremap <silent><expr><S-TAB> exists('*coc#pum#visible') && coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <CR> exists('*coc#pum#visible') && coc#pum#visible() ? coc#pum#confirm()
+                              \: exists('*coc#on_enter') ? "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>" : "\<CR>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -36,7 +40,7 @@ endfunction
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
+  if exists('*CocAction') && CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
     call feedkeys('K', 'in')
@@ -44,4 +48,10 @@ function! ShowDocumentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
+function! HighlightCocSymbol() abort
+  if exists('*CocActionAsync')
+    silent call CocActionAsync('highlight')
+  endif
+endfunction
+
+autocmd CursorHold * call HighlightCocSymbol()

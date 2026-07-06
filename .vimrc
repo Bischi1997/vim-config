@@ -22,7 +22,7 @@ syntax on
 " Special indent sizes, per language (i.e. file extension)
 filetype plugin indent on
 " Set colorscheme
-colorscheme gruvbox
+silent! colorscheme gruvbox
 
 " Load config files for Plugin Configurations from ~/.vim/config/
 for config in split(glob('~/.vim/config/*.vim'), '\n')
