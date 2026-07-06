@@ -4,6 +4,9 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" CoC owns the popup menu; Ollama gets explicit mappings in config/ollama.vim.
+let g:ollama_no_tab_map = v:true
+
 call plug#begin()
 Plug 'morhetz/gruvbox' " colorscheme
 Plug 'chase/vim-ansible-yaml'

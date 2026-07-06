@@ -29,6 +29,10 @@ let g:ollama_edit_model = 'codellama:13b-instruct'
 " when disabled, LLM changs are applied directly. Useful when tracking changes via Git.
 "let g:ollama_use_inline_diff = 0
 
+inoremap <silent> ,a <Plug>(ollama-tab-completion)
+inoremap <silent> ,w <Plug>(ollama-insert-word)
+inoremap <silent> ,l <Plug>(ollama-insert-line)
+
 " debug settings
 "let g:ollama_debug = 4
 " general log file location

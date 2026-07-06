@@ -25,6 +25,8 @@ inoremap <silent><expr> <TAB>
       \ CheckBackspace() ? "\<Tab>" :
       \ exists('*coc#refresh') ? coc#refresh() : "\<Tab>"
 inoremap <silent><expr><S-TAB> exists('*coc#pum#visible') && coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <Down> exists('*coc#pum#visible') && coc#pum#visible() ? coc#pum#next(1) : "\<Down>"
+inoremap <silent><expr> <Up> exists('*coc#pum#visible') && coc#pum#visible() ? coc#pum#prev(1) : "\<Up>"
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
