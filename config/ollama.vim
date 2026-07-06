@@ -20,12 +20,12 @@ let g:ollama_model = 'qwen2.5-coder:1.5b'
 "let g:ollama_completion_denylist_filetype = []
 
 " chat model
-let g:ollama_chat_model = 'qwen3-coder:latest'
+let g:ollama_chat_model = 'qwen2.5-coder:7b'
 " override chat system prompt
 "let g:ollama_chat_systemprompt = 'Give funny answers.'
 
 " edit model
-let g:ollama_edit_model = 'codellama:13b-instruct'
+let g:ollama_edit_model = 'qwen2.5-coder:7b'
 " when disabled, LLM changes are applied directly. Useful when tracking changes via Git.
 "let g:ollama_use_inline_diff = 0
 
