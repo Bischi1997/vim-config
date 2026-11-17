@@ -1,7 +1,3 @@
-if !exists(':Ollama')
-  finish
-endif
-
 " Use Python virtual environment (and install packages via pip)
 let g:ollama_use_venv = 1
 " Ollama base URL
@@ -29,9 +25,9 @@ let g:ollama_edit_model = 'qwen2.5-coder:7b'
 " when disabled, LLM changes are applied directly. Useful when tracking changes via Git.
 "let g:ollama_use_inline_diff = 0
 
-inoremap <silent> ,a <Plug>(ollama-tab-completion)
-inoremap <silent> ,w <Plug>(ollama-insert-word)
-inoremap <silent> ,l <Plug>(ollama-insert-line)
+imap <silent> ,a <Plug>(ollama-tab-completion)
+imap <silent> ,w <Plug>(ollama-insert-word)
+imap <silent> ,l <Plug>(ollama-insert-line)
 
 " debug settings
 "let g:ollama_debug = 4
