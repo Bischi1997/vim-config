@@ -1,5 +1,11 @@
 " Use Python virtual environment (and install packages via pip)
 let g:ollama_use_venv = 1
+" A Homebrew Python upgrade breaks the venv's interpreter link, and the plugin
+" only rebuilds a missing venv, so drop a broken one to have it recreated.
+let s:venv = expand('~/.vim/venv/ollama')
+if isdirectory(s:venv) && !executable(s:venv . '/bin/python')
+  call delete(s:venv, 'rf')
+endif
 " Ollama base URL
 let g:ollama_host = 'http://localhost:11434'
 " tab completion model
